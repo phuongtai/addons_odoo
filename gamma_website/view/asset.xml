@@ -1,0 +1,20 @@
+<openerp>
+	<data>
+	<template id="mystyle" name="My style" inherit_id="website.assets_frontend">
+	<xpath expr="link[last()]" position="after">
+	<link href="/gamma_website/static/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+	<link href="/gamma_website/static/css/style.css" rel="stylesheet" type="text/css"></link>
+	<link href="/gamma_website/static/css/us-base.css" rel="stylesheet" type="text/css"></link>
+	<link href="/gamma_website/static/owl/owl.carousel.css" rel="stylesheet" type="text/css"></link>
+	<link href="/gamma_website/static/owl/owl.theme.css" rel="stylesheet" type="text/css"></link>
+	<link href="/gamma_website/static/owl/owl.transitions.css" rel="stylesheet" type="text/css"></link>
+	</xpath>
+	</template>
+	
+	<template id="js-carousel" name="Carousel" inherit_id="web.assets_common">
+	<xpath expr="script[last()]" position="after">
+	<script type="text/javascript" src="/gamma_website/static/owl/owl.carousel.min.js"/>
+	</xpath>
+	</template>
+	</data>
+</openerp>

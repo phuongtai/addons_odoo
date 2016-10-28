@@ -1,0 +1,13 @@
+.l-subfooter.at_top a, .l-subfooter.at_top .widget_tag_cloud .tagcloud a, .l-subfooter.at_top .widget_product_tag_cloud .tagcloud a {
+    color: #F9A02C;
+}
+
+.l-footer{
+	background-color: rgba(225, 225, 225, 0.7);
+}
+.l-subfooter.at_bottom{
+	background-color: white;
+}
+.l-subfooter.at_top {
+    color: #666;
+}
