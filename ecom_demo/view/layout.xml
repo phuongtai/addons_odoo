@@ -1,0 +1,16 @@
+<openerp>
+	<data>
+	<template id="subheader" inherit_id="website.layout">
+		    	<xpath expr="//div[@class='container']" position="replace">
+		    	
+		    	</xpath>
+		    	</template>
+		    	
+	</data>
+	<template id="footer" inherit_id="website.footer">
+	<xpath >
+	
+	</xpath>
+	</template>
+	
+</openerp>
