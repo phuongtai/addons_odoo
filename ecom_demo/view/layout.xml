@@ -1,16 +1,216 @@
 <openerp>
 	<data>
-	<template id="subheader" inherit_id="website.layout">
-		    	<xpath expr="//div[@class='container']" position="replace">
-		    	
-		    	</xpath>
-		    	</template>
-		    	
+	
+
+		<template id="custom_layout" inherit_id="website.layout">
+			<xpath expr="//div[@class='navbar navbar-default navbar-static-top']" position="attributes">
+			<attribute name="class">hidden</attribute>
+			</xpath>
+			<xpath expr="//div[@id='wrapwrap']/header" position="inside">
+				<div class="container no-padding" style="padding-top:20px; padding-bottom:20px">
+
+					<div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
+						<!-- ============================================================= 
+							LOGO ============================================================= -->
+						<div class="logo">
+							<a href="index.html">
+								<!--<img alt="logo" src="assets/images/logo.svg" width="233" height="54"/> -->
+								<!--<object id="sp" type="image/svg+xml" data="assets/images/logo.svg" 
+									width="233" height="54"></object> -->
+
+							</a>
+						</div><!-- /.logo -->
+						<!-- ============================================================= 
+							LOGO : END ============================================================= -->
+					</div><!-- /.logo-holder -->
+
+					<div class="col-xs-12 col-sm-12 col-md-6 top-search-holder no-margin">
+						<div class="contact-row">
+							<div class="phone inline">
+								<i class="fa fa-phone"></i>
+								(+84) 963279454
+							</div>
+							<div class="contact inline">
+								<i class="fa fa-envelope"></i>
+								taiphuongit@
+								<span class="le-color">gmail.com</span>
+							</div>
+						</div><!-- /.contact-row -->
+						<!-- ============================================================= 
+							SEARCH AREA ============================================================= -->
+						<div class="search-area">
+							<form>
+								<div class="control-group">
+									<input class="search-field" placeholder="Search for item" />
+
+									<ul class="categories-filter animate-dropdown">
+										<li class="dropdown">
+
+											<a class="dropdown-toggle" data-toggle="dropdown" href="category-grid.html">all
+												categories
+											</a>
+
+											<ul class="dropdown-menu" role="menu">
+
+
+											</ul>
+										</li>
+									</ul>
+
+									<a class="search-button" href="#"></a>
+
+								</div>
+							</form>
+						</div><!-- /.search-area -->
+						<!-- ============================================================= 
+							SEARCH AREA : END ============================================================= -->
+					</div><!-- /.top-search-holder -->
+<t t-call="ecom_demo.header_cart"/>
+					<!-- ============================================================= SHOPPING 
+						CART DROPDOWN : END ============================================================= -->
+
+				</div><!-- /.container -->
+				<hr></hr>
+			</xpath>
+
+		</template>
+		<template id="header_cart">
+			<div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
+				<div class="top-cart-row-container" style="float: right;">
+
+
+					<!-- ============================================================= SHOPPING 
+						CART DROPDOWN ============================================================= -->
+					<div class="top-cart-holder dropdown animate-dropdown">
+
+						<div class="basket">
+
+							<a class="dropdown-toggle" data-toggle="dropdown" href="/shop/cart/">
+								<div class="basket-item-count">
+									<span class="count">
+										<span class="txt-item my_cart_quantity"
+											t-esc="website_sale_order and website_sale_order.cart_quantity or 0" />
+									</span>
+									<img src="/ecom_demo/static/assets/images/icon-cart.png"
+										alt="" />
+								</div>
+
+								<div class="total-price-basket">
+									<span class="lbl">Your Cart:</span>
+									<span class="total-price">
+								
+										 <span class="value" ></span>
+             
+									</span>
+								</div>
+							</a>
+
+
+							<ul class="dropdown-menu">
+								<t
+									t-if="website_sale_order and website_sale_order.website_order_line">
+									<ol class="mini-products-list">
+										<t t-foreach="website_sale_order.website_order_line" t-as="line">
+											<li class="basket-item">
+												<div class="row">
+													<div class="col-xs-4 col-sm-4 no-margin text-center">
+														<a class="product-image" title=""
+															t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">
+															<span>
+																<span t-field="line.product_id.image_small"
+																	t-field-options='{"widget": "image", "class": "img img-responsive img-rounded"}' />
+															</span>
+														</a>
+													</div>
+													<div class="col-xs-8 col-sm-8 no-margin">
+														<div class="product-details">
+															<a href="#" class="btn-remove js_add_cart_json_new"
+																title="" data-no-instant="">
+																<i class="fa fa-trash-o"></i>
+															</a>
+
+															<a class="btn-edit" title="Edit item" href="/shop/cart">
+																<i class="fa fa-pencil"></i>
+															</a>
+															<div class="price">
+																<p class="product-name">
+																	<a
+																		t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">
+																		<span t-esc="line.product_id.name" />
+																	</a>
+																</p>
+															</div>
+															<div class="price">
+																<strong>
+																	<input type="text" class="js_quantity"
+																		t-att-data-line-id="line.id" t-att-data-product-id="line.product_id.id"
+																		t-att-value="int(line.product_uom_qty)"
+																		style="width:0px !important;border:none !important;margin:0px !important;max-width:1px !important;text-align:right" />
+																</strong>
+																x
+																<span t-field="line.price_unit" style="white-space: nowrap;"
+																	t-field-options='{
+				                     "widget": "monetary",
+				                     "display_currency": "website.currency_id"
+				                 }' />
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</li>
+										</t>
+									</ol>
+
+
+								</t>
+
+								<li class="checkout">
+									<div class="basket-item">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<a href="/shop/cart" class="le-button inverse">View cart</a>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<a href="/shop/checkout/" class="le-button">Checkout</a>
+											</div>
+										</div>
+									</div>
+								</li>
+
+							</ul>
+						</div><!-- /.basket -->
+					</div><!-- /.top-cart-holder -->
+				</div><!-- /.top-cart-row-container -->
+			</div><!-- /.top-cart-row -->
+			<t t-call="ecom_demo.menu_banner"/>
+		</template>
+		
+	<template id="menu_banner">
+		<xpath expr="//main" position="inside">
+		<div id="top-banner-and-menu">
+<div class="container">
+		
+<div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
+			<!-- ================================== TOP NAVIGATION ================================== -->
+<div class="side-menu animate-dropdown">
+    <div class="head"><i class="fa fa-list"></i>Category</div>        
+    <nav class="yamm megamenu-horizontal" role="navigation">
+        <ul class="nav">
+        <t t-foreach="categories" t-as="c">
+        <a t-att-href="keep('/shop/category/' + slug(c), category=0)" ><li class="menu-item"> <t t-esc="c.name" /></li></a>
+        </t>
+        
+        </ul>
+        </nav>
+        </div>
+        </div>
+        </div>
+        </div>
+		</xpath>
+		</template>
+
+
+
 	</data>
-	<template id="footer" inherit_id="website.footer">
-	<xpath >
-	
-	</xpath>
-	</template>
-	
 </openerp>
