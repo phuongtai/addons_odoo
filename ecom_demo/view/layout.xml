@@ -183,16 +183,16 @@
 					</div><!-- /.top-cart-holder -->
 				</div><!-- /.top-cart-row-container -->
 			</div><!-- /.top-cart-row -->
-			<t t-call="ecom_demo.menu_banner"/>
+			<!-- <t t-call="ecom_demo.menu_banner"/> -->
 		</template>
 		
-	<template id="menu_banner">
+	<!-- <template id="menu_banner">
 		<xpath expr="//main" position="inside">
 		<div id="top-banner-and-menu">
 <div class="container">
 		
 <div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
-			<!-- ================================== TOP NAVIGATION ================================== -->
+			================================== TOP NAVIGATION ==================================
 <div class="side-menu animate-dropdown">
     <div class="head"><i class="fa fa-list"></i>Category</div>        
     <nav class="yamm megamenu-horizontal" role="navigation">
@@ -209,7 +209,7 @@
         </div>
 		</xpath>
 		</template>
-
+ -->
 
 
 	</data>
